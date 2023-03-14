@@ -1,0 +1,32 @@
+.carousel{
+    overflow: hidden;
+    
+}
+
+.inner{
+    white-space: nowrap;
+    transition: transform 0.3s;
+}
+
+.carousel-item{
+    display: inline-flex;
+    white-space: nowrap;
+    align-items: center;
+    justify-content: center;
+  overflow: hidden;
+  max-height: 480px;
+}
+
+.indicators {
+    display: flex;
+    justify-content: center;
+}
+
+.indicators > button {
+   margin: 5px
+}
+
+.indicators > button.active {
+    background-color: #8b005d;
+    color:aliceblue
+ }
