@@ -14,7 +14,15 @@ In addition, you will be adding administrative APIs that allow users to add or d
 
 **Core Application**
 
-The Express server, besides delivering whats required for React, should also provide an API endpoint that will return lists of photo URLs that are retrieved from a database. Your React app should make a request to your API endpoint to retrieve a photo list. During this request the React app should show a loading state. Once the photo list has been retrieved the loading state should dismiss and the first photo should be shown. The user should now be able to cycle through the photos using left and right arrow buttons. The user can use the UI to toggle between cat photos, shark photos, or both (when both selected they should arrive in a random order). After each change to the desired list the loading state should be shown just like during the initial load and a new request to the photo API endpoint should be made (i.e. Do not cache the photo lists).
+The Express server, besides delivering whats required for React, should also provide an API endpoint that will return lists of photo URLs that are retrieved from a database. #DONE except database
+
+ Your React app should make a request to your API endpoint to retrieve a photo list. During this request the React app should show a loading state. #DONE
+
+  Once the photo list has been retrieved the loading state should dismiss and the first photo should be shown. The user should now be able to cycle through the photos using left and right arrow buttons.  #DONE
+  
+  The user can use the UI to toggle between cat photos, shark photos, or both (when both selected they should arrive in a random order). #DONE
+  
+   After each change to the desired list the loading state should be shown just like during the initial load and a new request to the photo API endpoint should be made (i.e. Do not cache the photo lists).
 
 **Administrative Endpoints**
 
