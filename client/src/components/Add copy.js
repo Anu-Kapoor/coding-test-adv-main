@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import ModalWin from './UI/modalWin';
 import { useDispatch } from 'react-redux';
 import { dataActions } from '../store/dataSlice';
 import classes from './Add.module.css';
@@ -28,7 +28,7 @@ function AddNew({ categoryNames, onCancel }) {
     }
 
     return (
-        <>
+        <ModalWin onCancel={onCancel} >
             <form onSubmit={handleUpdate} className={classes.input}>
                 <h1>Add new photo to gallery</h1>
                 <label htmlFor="URL">URL:  </label>
@@ -73,7 +73,7 @@ function AddNew({ categoryNames, onCancel }) {
                     />
                 </div>
             </form>
-        </>
+        </ModalWin>
     )
 }
 

@@ -28,6 +28,7 @@ import {
             </ul>
           )}
           {data && data.message && <p>{data.message}</p>}
+         
           <p>
             <label htmlFor="email">Email</label>
             <input id="email" type="email" name="email" required />
@@ -37,13 +38,14 @@ import {
             <input id="password" type="password" name="password" required />
           </p>
           <div className={classes.actions}>
-            <Link to={`?mode=${isLogin ? 'signup' : 'login'}`}>
-              {isLogin ? 'Create new user' : 'Login'}
-            </Link>
+            
             <button disabled={isSubmitting}>
-              {isSubmitting ? 'Submitting...' : 'Save'}
+              {isLogin ? 'Login' : 'Create User'}
             </button>
           </div>
+          <Link to={`?mode=${isLogin ? 'signup' : 'login'}`}>
+              {isLogin ? 'Click to Sign up' : 'Click to Login'}
+            </Link>
         </Form>
       </>
     );

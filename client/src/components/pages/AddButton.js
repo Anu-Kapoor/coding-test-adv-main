@@ -1,13 +1,22 @@
 import React, { useState } from 'react';
+import { useRouteLoaderData, useNavigate } from 'react-router-dom';
+ 
 import AddNew from '../Add';
 import './Home.css';
 
 function AddButton({ categoryNames }) {
-
+    const token = useRouteLoaderData('root');
+    const navigate = useNavigate();
     const [isAdding, setIsAdding] = useState(false);
 
     const addForm = () => {
-        setIsAdding(true);
+        if (token) 
+        {setIsAdding(true);}
+        else if (!token){
+             navigate("/auth");
+             console.log("navigate");
+        }
+        
     }
 
     const onCancel = () => {
