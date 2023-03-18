@@ -14,16 +14,14 @@ const MainNavigation = () => {
           </li>
           <li>
             <NavLink to='/events' className={(navData) => navData.isActive ? classes.active : ''} end>
-              Pics
-            </NavLink>
-          </li>
-          <li>
-            <NavLink to='/new' className={(navData) => navData.isActive ? classes.active : ''} end>
-              Add
+              Gallery
             </NavLink>
           </li>
 
+
           {!token && (
+
+
             <li>
               <NavLink
                 to="/auth?mode=login"
@@ -34,13 +32,22 @@ const MainNavigation = () => {
                 User
               </NavLink>
             </li>
+
+
+
           )}
           {token && (
-            <li>
-              <Form action="/logout" method="post">
-                <button className={classes.btnLogout}>Logout</button>
-              </Form>
-            </li>
+            <>
+              <li>
+                <NavLink to='/events/new' className={(navData) => navData.isActive ? classes.active : ''} end>
+                  Add
+                </NavLink>
+              </li>
+              <li>
+                <Form action="/logout" method="post">
+                  <button className={classes.btnLogout}>Logout</button>
+                </Form>
+              </li></>
           )}
         </ul>
       </nav>

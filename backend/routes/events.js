@@ -37,19 +37,19 @@ router.post('/', async (req, res, next) => {
 
   let errors = {};
 
-  if (!isValidText(data.title)) {
-    errors.title = 'Invalid title.';
+  if (!isValidText(data.category)) {
+    errors.title = 'Invalid category.';
   }
 
-  if (!isValidText(data.description)) {
-    errors.description = 'Invalid description.';
-  }
+  // if (!isValidText(data.description)) {
+  //   errors.description = 'Invalid description.';
+  // }
 
-  if (!isValidDate(data.date)) {
-    errors.date = 'Invalid date.';
-  }
+  // if (!isValidDate(data.date)) {
+  //   errors.date = 'Invalid date.';
+  // }
 
-  if (!isValidImageUrl(data.image)) {
+  if (!isValidImageUrl(data.url)) {
     errors.image = 'Invalid image.';
   }
 
@@ -68,33 +68,34 @@ router.post('/', async (req, res, next) => {
   }
 });
 
+
 router.patch('/:id', async (req, res, next) => {
   const data = req.body;
 
   let errors = {};
 
-  if (!isValidText(data.title)) {
-    errors.title = 'Invalid title.';
-  }
+  // if (!isValidText(data.title)) {
+  //   errors.title = 'Invalid title.';
+  // }
 
-  if (!isValidText(data.description)) {
-    errors.description = 'Invalid description.';
-  }
+  // if (!isValidText(data.description)) {
+  //   errors.description = 'Invalid description.';
+  // }
 
-  if (!isValidDate(data.date)) {
-    errors.date = 'Invalid date.';
-  }
+  // if (!isValidDate(data.date)) {
+  //   errors.date = 'Invalid date.';
+  // }
 
-  if (!isValidImageUrl(data.image)) {
-    errors.image = 'Invalid image.';
-  }
+  // if (!isValidImageUrl(data.image)) {
+  //   errors.image = 'Invalid image.';
+  // }
 
-  if (Object.keys(errors).length > 0) {
-    return res.status(422).json({
-      message: 'Updating the event failed due to validation errors.',
-      errors,
-    });
-  }
+  // if (Object.keys(errors).length > 0) {
+  //   return res.status(422).json({
+  //     message: 'Updating the event failed due to validation errors.',
+  //     errors,
+  //   });
+  // }
 
   try {
     await replace(req.params.id, data);

@@ -6,7 +6,7 @@ const dataSlice = createSlice({
   name: 'data',
   initialState: {
     pics: PicsData,
-    categories: ["cat", "dog", "whale"],
+    categories: [],
     // quotes: [],
     // selectedPic: null,
     // items: [],
@@ -33,8 +33,8 @@ const dataSlice = createSlice({
   
     },
 
-    sendCategories(state, action){
-    //  state.categories = action.payload.items;
+    setCategories(state, action){
+     state.categories = action.payload.items;
     }
 
    

@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import AddButton from './AddButton';
 import Carousel, { CarouselItem } from '../Carousal';
 
+
 export default function PicsList({pics}) {
  
   //const categoryNames = useSelector((state) => state.data.categories);
@@ -16,8 +17,10 @@ export default function PicsList({pics}) {
           return acc;
         }
       }, []);
+      
 
 const categoryNames=reducedPics.map(a=>a.category);
+
 
 
   const selectionHandler = (cate, e) => {
@@ -74,9 +77,10 @@ const categoryNames=reducedPics.map(a=>a.category);
         }
       </Carousel>
       </div>
-      <div className='container'> <h1>Want to upload photos to gallery?</h1>
+      {/* <div className='container'> <h1>Want to upload photos to gallery?</h1>
      <AddButton categoryNames={categoryNames} />
-     </div>
+     </div> */}
     </React.Fragment>
   );
 }
+

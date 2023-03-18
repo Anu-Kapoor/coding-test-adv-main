@@ -41,4 +41,5 @@ console.log("LOG TOKEN", token);
   if (!token) {
     return redirect('/auth');
   }
+  else return token;
 }
