@@ -14,7 +14,6 @@ function AddButton({ categoryNames }) {
         {setIsAdding(true);}
         else if (!token){
              navigate("/auth");
-             console.log("navigate");
         }
         
     }

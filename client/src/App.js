@@ -2,10 +2,13 @@ import './App.css';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import React from 'react';
 
-import Home, { loader as picsLoader, CategoryLoader as CategoryLoader } from './components/pages/Home';
+import Home, { loader as picsLoader } from './components/pages/Home';
 import { checkAuthLoader, tokenLoader } from './util/auth';
 import RootLayout from './components/pages/Root';
 import EventsRootLayout from './components/pages/EventsRoot';
+import PicDetailPage, {
+  loader as eventDetailLoader,
+  action as deleteEventAction,} from './components/pages/PicDetail';
 
 import ErrorPage from './components/pages/Error';
 import HomePage from './components/pages/HomePage';
@@ -47,14 +50,14 @@ const router = createBrowserRouter([
         action: manipulateEventAction,
         loader: picsLoader,
           },  
-        //   {
-        //     path: 'eventId',
-        //     id: 'event-detail',
-        //     loader: eventDetailLoader
-        //     element: <EventDetailPage />,
-        // action: deleteEventAction,
+          {
+            path: ':eventId',
+            id: 'event-detail',
+            loader: eventDetailLoader,
+            element: <PicDetailPage />,
+        action: deleteEventAction,
        
-        //   },     
+          },     
         ],
       },
       {

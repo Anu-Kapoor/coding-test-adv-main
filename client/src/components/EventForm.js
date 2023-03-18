@@ -18,7 +18,6 @@ function EventForm({photos, method, event }) {
   const navigation = useNavigation();
   const isSubmitting = navigation.state === 'submitting';
   const pics = photos;
-  console.log("photos", photos);
   const reducedPics = pics.reduce((acc, current) => {
     const x = acc.find(item => item.category === current.category);
     if (!x) {
@@ -133,8 +132,7 @@ export default EventForm;
 export async function action({ request, params }) {
   const method = request.method;
   const data = await request.formData();
-  console.log(method, "ACTION LOG", data.get('category'), data.get('categoryName'));
-
+  
   const eventData = {
     category: (data.get('category')=== "false")? data.get('categoryName'): data.get('category'),
     url: data.get('image'),

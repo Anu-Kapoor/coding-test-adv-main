@@ -2,7 +2,7 @@ import './Home.css';
 import React, { useState } from 'react';
 import AddButton from './AddButton';
 import Carousel, { CarouselItem } from '../Carousal';
-
+import { Link } from 'react-router-dom';
 
 export default function PicsList({pics}) {
  
@@ -65,12 +65,14 @@ const categoryNames=reducedPics.map(a=>a.category);
         }).map((item) => (
          
             <CarouselItem key={item.id}>
+              <Link to={`/events/${item.id}`}>
              <img
                 src={`${item.url}?w=248&fit=crop&auto=format`}
                 alt={item.title}
                 onMouseOver={(e) => (e.currentTarget.style = { transform: "scale(1.25)", overflow: "hidden" })}
                 onMouseOut={(e) => (e.currentTarget.style = { transform: "scale(1)", overflow: "hidden" })}
               /> 
+              </Link>
             </CarouselItem>
         
         ))
