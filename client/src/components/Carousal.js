@@ -32,7 +32,7 @@ export const Carousel = ({children})=>{
         const interval = setInterval(() => {
             if(!paused)
             {updateIndex(activeIndex + 1);}
-        }, 5000);
+        }, 10000);
         return () => {
             if (interval) {
                 clearInterval(interval);
@@ -42,16 +42,21 @@ export const Carousel = ({children})=>{
 
     return(
         <div className='carousel' onMouseEnter={()=>{setPaused(true)}} onMouseLeave={()=>{setPaused(false)}}>
+            
             <div className='inner' style={{transform: `translateX(-${activeIndex *100}%)`}}> 
             {React.Children.map(children, (child, index) =>{
                 return React.cloneElement(child, {width: "100%"});
             })}
             </div>
+            <div style={{display: "flex", justifyContent: "space-evenly", fontSize:"0.8rem"}}>
+                {`${activeIndex+1} of ${React.Children.count(children)}`}
+                </div>
             <div className='indicators'>
                 <button onClick={()=>{updateIndex(activeIndex-1)}}>
                     Prev
                 </button>
-                {
+               
+                {/* {
                     React.Children.map(children, (child, index)=>{
                         return(
                             <button className={`${index === activeIndex? "active" : ""}`}
@@ -60,7 +65,7 @@ export const Carousel = ({children})=>{
                             </button>
                         )
                     })
-                }
+                } */}
                 <button onClick={()=>{updateIndex(activeIndex+1)}}>
                     Next
                 </button>

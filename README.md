@@ -14,13 +14,21 @@ In addition, you will be adding administrative APIs that allow users to add or d
 
 **Core Application**
 
-The Express server, besides delivering whats required for React, should also provide an API endpoint that will return lists of photo URLs that are retrieved from a database. Your React app should make a request to your API endpoint to retrieve a photo list. During this request the React app should show a loading state. Once the photo list has been retrieved the loading state should dismiss and the first photo should be shown. The user should now be able to cycle through the photos using left and right arrow buttons. The user can use the UI to toggle between cat photos, shark photos, or both (when both selected they should arrive in a random order). After each change to the desired list the loading state should be shown just like during the initial load and a new request to the photo API endpoint should be made (i.e. Do not cache the photo lists).
+The Express server, besides delivering whats required for React, should also provide an API endpoint that will return lists of photo URLs that are retrieved from a database. #DONE except database
+
+ Your React app should make a request to your API endpoint to retrieve a photo list. During this request the React app should show a loading state. #DONE
+
+  Once the photo list has been retrieved the loading state should dismiss and the first photo should be shown. The user should now be able to cycle through the photos using left and right arrow buttons.  #DONE
+  
+  The user can use the UI to toggle between cat photos, shark photos, or both (when both selected they should arrive in a random order). #DONE
+  
+   After each change to the desired list the loading state should be shown just like during the initial load and a new request to the photo API endpoint should be made (i.e. Do not cache the photo lists). #DONE
 
 **Administrative Endpoints**
 
-The Express server should also expose a number of administrative endpoints. The primary responsibility of these endpoints is to enable the addition or deletion of additional animal categories. When a category is added or removed, the application should be updated to reflect this (e.g. If the `dog` category is added, the Core Application's UI should display buttons for cats, dogs, and sharks. Categories are shuffled together based on active categories). A UI for the Admin endpoints is NOT requlred (but can be added as a bonus!). 
+The Express server should also expose a number of administrative endpoints. The primary responsibility of these endpoints is to enable the addition or deletion of additional animal categories. When a category is added or removed, the application should be updated to reflect this (e.g. If the `dog` category is added, the Core Application's UI should display buttons for cats, dogs, and sharks. Categories are shuffled together based on active categories). A UI for the Admin endpoints is NOT requlred (but can be added as a bonus!). #DONE
 
-These endpoints should be protected, only allowing requests accompanied by a valid authentication token. The starter code exposes a route, `GET /auth` that will return an auth token. This token should be used to authenticate requests. 
+These endpoints should be protected, only allowing requests accompanied by a valid authentication token. The starter code exposes a route, `GET /auth` that will return an auth token. This token should be used to authenticate requests. #DONE 
 
 ### Do
 

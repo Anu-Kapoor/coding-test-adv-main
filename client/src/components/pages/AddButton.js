@@ -1,13 +1,19 @@
 import React, { useState } from 'react';
+import { useRouteLoaderData, useNavigate } from 'react-router-dom';
+
 import AddNew from '../Add';
 import './Home.css';
 
 function AddButton({ categoryNames }) {
-
+    const token = useRouteLoaderData('root');
+    const navigate = useNavigate();
     const [isAdding, setIsAdding] = useState(false);
 
     const addForm = () => {
-        setIsAdding(true);
+        if (token) { setIsAdding(true); }
+        else if (!token) {
+            navigate("/auth");
+        }
     }
 
     const onCancel = () => {
@@ -15,11 +21,8 @@ function AddButton({ categoryNames }) {
     }
     return (
         <React.Fragment>
-          
-           <button onClick={addForm}>Add New </button>
-         
+            <button onClick={addForm}>Add New </button>
             {isAdding && (<AddNew categoryNames={categoryNames} onCancel={onCancel} />)}
-
         </React.Fragment>
     );
 };
