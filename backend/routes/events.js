@@ -50,14 +50,14 @@ router.post('/', async (req, res, next) => {
 
   if (Object.keys(errors).length > 0) {
     return res.status(422).json({
-      message: 'Adding the event failed due to validation errors.',
+      message: 'Adding the photograph failed due to validation errors.',
       errors,
     });
   }
 
   try {
     await add(data);
-    res.status(201).json({ message: 'Event saved.', event: data });
+    res.status(201).json({ message: 'Image saved.', event: data });
   } catch (error) {
     next(error);
   }
@@ -94,7 +94,7 @@ router.patch('/:id', async (req, res, next) => {
 
   try {
     await replace(req.params.id, data);
-    res.json({ message: 'Event updated.', event: data });
+    res.json({ message: 'Photograph updated.', event: data });
   } catch (error) {
     next(error);
   }
@@ -103,7 +103,7 @@ router.patch('/:id', async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
     await remove(req.params.id);
-    res.json({ message: 'Event deleted.' });
+    res.json({ message: '{Photograph deleted.' });
   } catch (error) {
     next(error);
   }

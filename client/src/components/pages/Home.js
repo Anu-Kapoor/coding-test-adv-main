@@ -1,9 +1,6 @@
 import './Home.css';
-import {Suspense, useState } from 'react';
-import { useSelector } from 'react-redux';
+import { Suspense } from 'react';
 import PicsList from './PicsList';
-import AddButton from './AddButton';
-import Carousel, { CarouselItem } from '../Carousal';
 import { useLoaderData, json, defer, Await } from 'react-router-dom';
 
 export default function Home() {
@@ -19,12 +16,9 @@ export default function Home() {
 
 async function loadPics() {
   const response = await fetch('http://localhost:8080/events');
- 
+
   if (!response.ok) {
-    // return { isError: true, message: 'Could not fetch events.' };
-    // throw new Response(JSON.stringify({ message: 'Could not fetch events.' }), {
-    //   status: 500,
-    // });
+
     throw json(
       { message: 'Could not fetch pics.' },
       {

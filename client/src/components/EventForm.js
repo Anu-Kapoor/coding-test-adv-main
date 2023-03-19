@@ -1,12 +1,4 @@
-import {
-  Form,
-  useNavigate,
-  useNavigation,
-  useActionData,
-  json,
-  redirect
-} from 'react-router-dom';
-import { useSelector, useDispatch } from 'react-redux';
+import {  Form,  useNavigate,  useNavigation,  useActionData,  json,  redirect} from 'react-router-dom';
 import { useState } from 'react';
 
 import { getAuthToken } from '../util/auth';
@@ -30,10 +22,8 @@ function EventForm({photos, method, event }) {
 const categoryNames=reducedPics.map(a=>a.category);
 
   
-  // const dispatch = useDispatch();
-  // const categoryNames = useSelector((state) => state.data.categories);
   const [catInput, setCatInput] = useState(false);
-  const [newCategory, setNewCategory] = useState("");
+ 
   const [selectedOption, setSelectedOption] = useState(categoryNames[0]);
 
     const handleChange = (value) => {
@@ -100,16 +90,6 @@ const categoryNames=reducedPics.map(a=>a.category);
                 )}
       </p>
 
-      {/* <p>
-        <label htmlFor="description">Description</label>
-        <textarea
-          id="description"
-          name="description"
-          rows="5"
-          required
-          defaultValue={event ? event.description : ''}
-        />
-      </p> */}
       
       <div className={classes.actions}>
         <button type="button" onClick={cancelHandler} disabled={isSubmitting}>
@@ -127,8 +107,6 @@ export default EventForm;
 
 
 
-
-
 export async function action({ request, params }) {
   const method = request.method;
   const data = await request.formData();
@@ -136,8 +114,6 @@ export async function action({ request, params }) {
   const eventData = {
     category: (data.get('category')=== "false")? data.get('categoryName'): data.get('category'),
     url: data.get('image'),
-    // date: data.get('date'),
-    // description: data.get('description'),
   };
 
   let url = 'http://localhost:8080/events';

@@ -6,7 +6,7 @@ const { readData, writeData } = require('./util');
 async function getAll() {
   const storedData = await readData();
   if (!storedData.events) {
-    throw new NotFoundError('Could not find any events.');
+    throw new NotFoundError('Could not find any photos.');
   }
   return storedData.events;
 }
@@ -14,12 +14,12 @@ async function getAll() {
 async function get(id) {
   const storedData = await readData();
   if (!storedData.events || storedData.events.length === 0) {
-    throw new NotFoundError('Could not find any events.');
+    throw new NotFoundError('Could not find any photos.');
   }
 
   const event = storedData.events.find((ev) => ev.id === id);
   if (!event) {
-    throw new NotFoundError('Could not find event for id ' + id);
+    throw new NotFoundError('Could not find photo for id ' + id);
   }
 
   return event;
@@ -39,7 +39,7 @@ async function replace(id, data) {
 
   const index = storedData.events.findIndex((ev) => ev.id === id);
   if (index < 0) {
-    throw new NotFoundError('Could not find event for id ' + id);
+    throw new NotFoundError('Could not find photo for id ' + id);
   }
 
   storedData.events[index] = { ...data, id };

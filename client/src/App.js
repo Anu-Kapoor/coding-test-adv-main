@@ -3,16 +3,17 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import React from 'react';
 
 import Home, { loader as picsLoader } from './components/pages/Home';
-import { checkAuthLoader, tokenLoader } from './util/auth';
+import { tokenLoader } from './util/auth';
 import RootLayout from './components/pages/Root';
 import EventsRootLayout from './components/pages/EventsRoot';
 import PicDetailPage, {
   loader as eventDetailLoader,
-  action as deleteEventAction,} from './components/pages/PicDetail';
+  action as deleteEventAction,
+} from './components/pages/PicDetail';
 
 import ErrorPage from './components/pages/Error';
 import HomePage from './components/pages/HomePage';
-import NotFound from './components/pages/NotFound';
+
 import AuthenticationPage, {
   action as authAction,
 } from './components/pages/Authentication';
@@ -22,13 +23,12 @@ import { action as logoutAction } from './components/pages/Logout';
 import NewEventPage from './components/pages/NewEvent';
 
 
-import AddButton from './components/pages/AddButton';
 
 const router = createBrowserRouter([
   {
     path: '/',
     element: <RootLayout />,
-    // errorElement: <ErrorPage />,
+    errorElement: <ErrorPage />,
     id: 'root',
     loader: tokenLoader,
     children: [
@@ -39,25 +39,26 @@ const router = createBrowserRouter([
       {
         path: 'events',
         element: <EventsRootLayout />,
-        children:[
-         { index: true,
+        children: [
+          {
+            index: true,
             element: <Home />,
             loader: picsLoader,
           },
           {
             path: 'new',
             element: <NewEventPage />,
-        action: manipulateEventAction,
-        loader: picsLoader,
-          },  
+            action: manipulateEventAction,
+            loader: picsLoader,
+          },
           {
             path: ':eventId',
             id: 'event-detail',
             loader: eventDetailLoader,
             element: <PicDetailPage />,
-        action: deleteEventAction,
-       
-          },     
+            action: deleteEventAction,
+
+          },
         ],
       },
       {
@@ -69,7 +70,7 @@ const router = createBrowserRouter([
         path: 'logout',
         action: logoutAction,
       },
-      
+
     ]
   },
 

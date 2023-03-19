@@ -18,10 +18,7 @@ const MainNavigation = () => {
             </NavLink>
           </li>
 
-
           {!token && (
-
-
             <li>
               <NavLink
                 to="/auth?mode=login"
@@ -32,9 +29,6 @@ const MainNavigation = () => {
                 User
               </NavLink>
             </li>
-
-
-
           )}
           {token && (
             <>

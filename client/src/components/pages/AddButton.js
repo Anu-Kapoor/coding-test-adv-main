@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useRouteLoaderData, useNavigate } from 'react-router-dom';
- 
+
 import AddNew from '../Add';
 import './Home.css';
 
@@ -10,12 +10,10 @@ function AddButton({ categoryNames }) {
     const [isAdding, setIsAdding] = useState(false);
 
     const addForm = () => {
-        if (token) 
-        {setIsAdding(true);}
-        else if (!token){
-             navigate("/auth");
+        if (token) { setIsAdding(true); }
+        else if (!token) {
+            navigate("/auth");
         }
-        
     }
 
     const onCancel = () => {
@@ -23,11 +21,8 @@ function AddButton({ categoryNames }) {
     }
     return (
         <React.Fragment>
-          
-           <button onClick={addForm}>Add New </button>
-         
+            <button onClick={addForm}>Add New </button>
             {isAdding && (<AddNew categoryNames={categoryNames} onCancel={onCancel} />)}
-
         </React.Fragment>
     );
 };

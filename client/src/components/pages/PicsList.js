@@ -1,12 +1,10 @@
 import './Home.css';
 import React, { useState } from 'react';
-import AddButton from './AddButton';
 import Carousel, { CarouselItem } from '../Carousal';
 import { Link } from 'react-router-dom';
 
 export default function PicsList({pics}) {
  
-  //const categoryNames = useSelector((state) => state.data.categories);
   const [selectedCategory, setSelectedCategory] = useState([]);
 
    const reducedPics = pics.reduce((acc, current) => {
@@ -20,8 +18,6 @@ export default function PicsList({pics}) {
       
 
 const categoryNames=reducedPics.map(a=>a.category);
-
-
 
   const selectionHandler = (cate, e) => {
    
@@ -44,13 +40,11 @@ const categoryNames=reducedPics.map(a=>a.category);
      <div className='container' style={{backgroundColor:'#c73d991b'}}>
       <div className='form-control'>
       {categoryNames.map((item) => (
-     //   <div key={item} className={`form-control ${(selectedCategory.includes(item)) ? 'invalid' : ''}`}>
           <button key={item} 
           className={`btn ${(selectedCategory.includes(item)) ? 'invalid' : ''}`} 
           onClick={(e) => selectionHandler(item, e)} > 
           {item} 
           </button>
-    //    </div>
       ))}
       </div>
       
@@ -79,9 +73,7 @@ const categoryNames=reducedPics.map(a=>a.category);
         }
       </Carousel>
       </div>
-      {/* <div className='container'> <h1>Want to upload photos to gallery?</h1>
-     <AddButton categoryNames={categoryNames} />
-     </div> */}
+     
     </React.Fragment>
   );
 }
